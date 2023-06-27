@@ -5,9 +5,9 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 ## objective of the training
 
 ### Backend objectives
-1. understand basic of Node js, and how to use Express as a dependenciy to have a light weight web server
+1. understand basic of Node js, and how to use Express as a dependency to have a light weight web server
 2. understand how backend routes works
-3. understand Mongo DB Attlass , and how to use MogoDB in our app
+3. understand Mongo DB Atlass , and how to use MogoDB in our app
 4. create a user Modal and validation
 5. JWT Authentication
 6. Create Auth Routes in protecting routes using middlewares
