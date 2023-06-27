@@ -7,7 +7,7 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 ### Backend objectives
 1. understand basic of Node js, and how to use Express as a dependenciy to have a light weight web server
 2. understand how backend routes works
-3. understand Mongo DB Attlass , and how to use MogoDB iin our app
+3. understand Mongo DB Attlass , and how to use MogoDB in our app
 4. create a user Modal and validation
 5. JWT Authentication
 6. Create Auth Routes in protecting routes using middlewares
@@ -33,5 +33,13 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 ### Front End Part 3 objectives
 1. introduction to NextJS
 2. Converting our solution from Single Page Application to a server app (SEO friendly)
+3. use TypeScript instead of JSX 
 3. converting the server middleware backend using the nextjs middleware api
 4. deploy the code to versal.
+
+## How to start
+1. send and email to info@wmvp.dev to request a colaboration permession.
+2. once you are added as a colaborator, you need to create a new branch from main with your own name.
+3. practice evrething shared from the Lebanese Web Community, on the Wiki Documentation and project objectives.
+4. attend the online meetings to follow the progress of the community training, and you may check old meetings shared on Vimeo documented for the purpose of this free training.
+
