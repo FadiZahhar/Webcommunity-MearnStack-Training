@@ -20,7 +20,7 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 4. Fetch or Axios (wokthrow) creatiing CRUD oporations from client side to our developed ready Backend.
 
 ### Front end Part 2 objectives
-1. experimenting using alternative CSS solutions such (Sass compiler, insline JSX , compiling CSS in JSX etc)
+1. experimenting using alternative CSS solutions such (Sass/SCSS, insline JSX ,CSS Modules,Styled Components etc)
 2. adding tailwind and refactoring the UX/UI component using Tailwind 3
 3. refactoring the Context API to Redux (introduction to redux best practices design pattern)
 
