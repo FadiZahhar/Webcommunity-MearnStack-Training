@@ -41,5 +41,5 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 1. send and email to info@wmvp.dev to request a colaboration permession.
 2. once you are added as a colaborator, you need to create a new branch from main with your own name.
 3. practice evrething shared from the Lebanese Web Community, on the Wiki Documentation and project objectives.
-4. attend the online meetings to follow the progress of the community training, and you may check old meetings shared on Vimeo documented for the purpose of this free training.
+4. attend the online meetings to follow the progress of the community training, and you may check old meetings shared on Vimeo documented for the purpose of this free training. 
 
