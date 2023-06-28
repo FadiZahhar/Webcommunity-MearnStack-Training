@@ -1,0 +1,28 @@
+{
+  "name": "webcommunity-mearnstack-training",
+  "version": "1.0.0",
+  "description": "Full stack MERN contact manager with React hooks, context & JWT authentication.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FadiZahhar/Webcommunity-MearnStack-Training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FadiZahhar/Webcommunity-MearnStack-Training/issues"
+  },
+  "homepage": "https://github.com/FadiZahhar/Webcommunity-MearnStack-Training#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.0",
+    "config": "^3.3.9",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
