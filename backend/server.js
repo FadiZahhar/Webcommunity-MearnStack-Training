@@ -5,6 +5,8 @@
 * in Node.js.
 */
 const express = require('express');
+// adding the config db
+const connectDB = require('./config/db');
 
 /*
 * Here, an instance of Express is created and assigned to the constant app. 
@@ -12,6 +14,10 @@ const express = require('express');
 * configuring middleware, rendering HTML views, and registering a template engine.
 */
 const app = express();
+
+// Connect Database
+connectDB();
+
 
 
 /*
