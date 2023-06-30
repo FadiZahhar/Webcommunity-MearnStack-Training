@@ -1,8 +1,9 @@
+const signupValidation = require("../validations/signup.validation");
+const { signup } = require("../controllers/users.controller");
+
 const express = require("express");
 const router = express.Router();
 
-router.post("/", (req, res) => {
-  res.json({ message: "Register a user" });
-});
+router.post("/", signupValidation, signup);
 
 module.exports = router;
