@@ -1,5 +1,9 @@
 const express = require("express");
+require("dotenv").config();
+const connectDB = require("./config/db.config");
+
 const app = express();
+connectDB();
 
 app.get("/", (req, res) =>
   res.json({ msg: "Welcome to Lebanese Web Community" })
