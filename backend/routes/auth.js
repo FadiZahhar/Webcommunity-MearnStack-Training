@@ -10,7 +10,15 @@ const User = require('../models/User');
 // @route   GET api/auth
 // @desc    GET logged in user
 // @access Private
-router.get('/',[
+router.get('/',(req,res) => {
+   res.send('Get Logged in User')
+});
+
+
+// @route   POST api/auth
+// @desc    Auth user & get token
+// @access Public
+router.post('/',[
     check('email','Please include a valid email').isEmail(),
     check('password','Password is required').exists()
 ], async (req,res) => {
@@ -51,13 +59,6 @@ router.get('/',[
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-});
-
-// @route   POST api/auth
-// @desc    Auth user & get token
-// @access Public
-router.post('/', (req,res) => {
-    res.send('Log in user');
 });
 
 
