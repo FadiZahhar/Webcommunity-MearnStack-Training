@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 
 
-// @route   GET api/
+// @route   GET api/contact/
 // @desc    GET contact list 
 // @access  Private (to the user only)
 router.get("/", (request, response) => {
@@ -13,7 +13,7 @@ router.get("/", (request, response) => {
 
 
 
-// @route   POST api/create-contact
+// @route   POST api/contact/
 // @desc    CREATE new contact 
 // @access  Private (to the user only)
 router.post("/", (request, response) => {
@@ -23,7 +23,7 @@ router.post("/", (request, response) => {
 
 
 
-// @route   PUT api/update-contact/:id
+// @route   PUT api/contact/:id
 // @desc    UPDATE new contact by id
 // @access  Private (to the user only)
 router.put("/:id", (request, response) => {
@@ -43,7 +43,7 @@ router.put("/:id", (request, response) => {
 
 
 
-// @route   DELETE api/delete-contact/:id
+// @route   DELETE api/contact/:id
 // @desc    DELETE a contact by an id 
 // @access  Private (to the user only)
 router.delete("/:id", (request, response) => {
