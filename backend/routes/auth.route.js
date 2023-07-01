@@ -1,4 +1,6 @@
 const express = require("express");
+const signinValidation = require("../validations/signin.validation");
+const { signin } = require("../controllers/users.controller");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -7,8 +9,6 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
-  res.json({ message: "Log in user" });
-});
+router.post("/", signinValidation, signin);
 
 module.exports = router;
