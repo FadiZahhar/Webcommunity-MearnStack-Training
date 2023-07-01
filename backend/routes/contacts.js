@@ -22,14 +22,7 @@ router.get('/', auth, async (req,res) => {
 // @route   POST api/contacts
 // @desc    Add new contact
 // @access Private
-router.post('/', (req,res) => {
-    res.send('Add new contact');
-});
-
-// @route   PUT api/contacts:id
-// @desc    Update contact
-// @access Private
-router.put('/:id', [auth, [
+router.post('/', [auth, [
     check('name','Name is required')
     .not()
     .isEmpty()
@@ -57,6 +50,13 @@ router.put('/:id', [auth, [
         console.error(err.message);
         res.status(500).send('Server Error');
     }
+});
+
+// @route   PUT api/contacts:id
+// @desc    Update contact
+// @access Private
+router.put('/:id',  (req,res) => {
+    res.send('Update contact');
 });
 
 // @route   DELETE api/contacts:id
