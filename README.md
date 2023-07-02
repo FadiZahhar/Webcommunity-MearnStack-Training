@@ -44,4 +44,5 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 4. attend the online meetings to follow the progress of the community training, and you may check old meetings shared on Vimeo documented for the purpose of this free training.
 
 ## Example on how to use this training step by step
-<iframe src="https://www.example.com" width="600" height="400"></iframe>
+![What the video](https://github.com/FadiZahhar/Webcommunity-MearnStack-Training/assets/8089881/fe65be7b-4e90-4ba4-bd18-df59d6e4ada5)(https://vimeo.com/841683652)
+
