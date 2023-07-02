@@ -1,41 +1,37 @@
-// import express function and use it to create express server-app
+// info about basic server config found in extra-practice/server.js 
 const app = require('express')(); 
+const connect_mongo_db = require("../config/mongo-db")
 
-app.get("/", (request, response) => {
-  // simple html message to the page when requested
-  response.send(`<h1>All contacts</h1>`);
+// connect to mongo database
+connect_mongo_db();
+
+/* 
+this greatly make our code maintable and scalable
+it is important to always divide the code into multiple folders & files
+put all route handlers inside a folder named 'routes'
+*/
+
+// a default api message if no resource was specified
+app.get('/api', (request, response) => {
+  // response.send("<h1>API Home page</h1>");
+  response.json([{
+     message1: "Welcome to web development training",
+     message2: "This array contain 1 object. This is an example of JSON"
+  }]);
 });
 
-app.post("/create-contact", (request, response) => {
-  // some server validations...
-  // if true
-  // response.send(`<h1>contact registered!</h1>`);
+// using the contacts router to make different operations of saved contacts 
+// read, create, update, delete
+app.use("/api/contact", require('./routes/contacts.js'));
 
-  // if already exists
-  response.send(`<h1 style="color: crimson">contact already exists!</h1>`);
-});
 
-app.put("/update-contact/:id", (request, response) => {
-  // take that :id, some server validations...
-  // if true
-  // response.send(`<h1>contact updated!</h1>`);
+// using the auth router to secure the API
+app.use("/api/auth", require("./routes/auth.js"));
 
-  // if infos collides with another contact
-  // take the contact name that collides 
-  let collided_contact = "Someone#phone"; 
-  let message = `
-    <h1 style="color: crimson">
-      contact infos resembles to an existing one: ${collided_contact}!
-    </h1>
-  `;
-  response.send(message);
-});
 
-app.delete("/delete-contact/:id", (request, response) => {
-  // some server validations...
-  // (are you sure?)
-  response.send(`<h1 style="color: green">contact deleted!</h1>`);
-});
+// using the user router to view user info
+app.use("api/user",  require("./routes/users.js"))
+
 
 const PORT = process.env.PORT || 3333;
 app.listen(
