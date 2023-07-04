@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.modelNames('user',UserSchema);
+module.exports = mongoose.model('user',UserSchema);
 
 /*
 This code is written in Node.js using Mongoose, 
