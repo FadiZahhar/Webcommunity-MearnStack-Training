@@ -2,25 +2,25 @@
 
 Full stack MERN contact manager with React hooks, context & JWT authentication. 
 
-## objective of the training
+## objectives of the training
 
 ### Backend objectives
-1. understand basic of Node js, and how to use Express as a dependency to have a light weight web server
+1. understand basics of Node js, and how to use Express as a dependency to have a light weight web server
 2. understand how backend routes works
-3. understand Mongo DB Atlass , and how to use MogoDB in our app
+3. understand Mongo DB Atlas, and how to use MogoDB in our app
 4. create a user Modal and validation
 5. JWT Authentication
 6. Create Auth Routes in protecting routes using middlewares
-7. CRUD opporatioins
+7. CRUD operations
 
 ### Front end Part 1 Objectives
-1. HTML , CSS , JSX (Components development best practices)
-2. Context API , Global State management
-3. Client Side Validation, Form Submission , and UX/UI best practices
-4. Fetch or Axios (wokthrow) creatiing CRUD oporations from client side to our developed ready Backend.
+1. HTML, CSS, JSX (Components development best practices)
+2. Context API, Global State management
+3. Client Side Validation, Form Submission, and UX/UI best practices
+4. Fetch or Axios (wokthrow) creating CRUD oporations from client side to our developed ready Backend.
 
 ### Front end Part 2 objectives
-1. experimenting using alternative CSS solutions such (Sass compiler, insline JSX , compiling CSS in JSX etc)
+1. experimenting using alternative CSS solutions such (Sass compiler, insline JSX, compiling CSS in JSX, etc.)
 2. adding tailwind and refactoring the UX/UI component using Tailwind 3
 3. refactoring the Context API to Redux (introduction to redux best practices design pattern)
 
@@ -28,7 +28,7 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 ### Back End Part 2 objectives
 1. try to use firebase instead of mongodb.
 2. introduction to serverless solution and using our developed express code to firebase functions
-3. understanding the cloude solutions for modern web developers (AWS,Google,Microsoft Azure)
+3. understanding the cloud solutions for modern web developers (AWS, Google, Microsoft Azure)
 
 ### Front End Part 3 objectives
 1. introduction to NextJS
