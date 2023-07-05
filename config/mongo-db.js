@@ -1,5 +1,5 @@
 // this package is used to operate and connect mongo databases
-const mongoose = require("../backend/mongoose");
+const mongoose = require("mongoose");
 
 // config will read the default.json file in project 
 // and get the corresponding data for that property

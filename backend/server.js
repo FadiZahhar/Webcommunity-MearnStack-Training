@@ -31,7 +31,7 @@ app.get("/", (req, response) => {
 **/
 app.use("/api/contact", require("./routes/contacts.js"));
 app.use("/api/auth", require("./routes/auth.js"));
-app.use("api/user", require("./routes/users.js"));
+app.use("/api/user", require("./routes/users.js"));
 
 
 // if environment variable PORT is not specified, 3333 will be used
