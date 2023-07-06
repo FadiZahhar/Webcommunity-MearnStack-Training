@@ -8,9 +8,18 @@ const encryptPass = async (password) => {
   return encrypted;
 };
 
+// compare unhashed password with hashed one
+const passMatch = (password, hashedPass) => {
+  return bcrypt.compareSync(password, hashedPass);
+}
+
+
 let password = "SomeOne123@_!";
 let hashedPass = encryptPass(password)
   .then((data) => {
     console.log({ hashedPass: data }); 
     hashedPass = data;
+    
+    console.log(passMatch(password, hashedPass));
+    console.log(passMatch("hello", hashedPass));
   }).catch((err) => console.error(err));
