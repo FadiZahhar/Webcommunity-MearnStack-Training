@@ -6,14 +6,17 @@ const User = require("../models/User.js");
 // import bcrypt for encrypting the password
 const bcrypt = require("bcryptjs");
 
+// import config and jwt for getting a token for security
+const jwt = require("jsonwebtoken");
+const config = require("config");
+
 // import data validators from express
 const { check, validationResult } = require("express-validator");
 
 let validInputs = [
-  check("name", "Name is required to create an account")
-    .not()
-    .isEmpty()
-    .isLength({ max: 30 }),
+  check("name", "Name is required to create an account").isLength({ 
+    max: 30 
+  }).not().isEmpty(),
   check("email", "Please include a valid email").isEmail(),
   check("password", "Please include a password with minimum 8 chars").isLength({
     min: 8,
@@ -53,8 +56,27 @@ router.post("/", validInputs, async (req, response) => {
     // Step-5
     await user.save();
 
-    // success message
-    response.status(200).json({ msg: "user registered successfully" });
+    // now, to validate with jwt
+    let payload = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    jwt.sign(payload, config.get("jwtSecret"), {
+      expiresIn: 86400, // 1 day
+    }, 
+    (err, token) => {
+      if(err) throw "something went wrong";
+    
+      // success message
+      response.status(200).json({ 
+        msg: `user registered successfully`,
+        token
+      });
+    });
+
+    
 
   } catch (err) {
     console.error(err);
@@ -80,7 +102,7 @@ router.post("/", validInputs, async (req, response) => {
  *  3) create a new one using the User model
  *  4) encrypt the password by salting it then hashing it using bcrypt (common security measure)
  *  5) save the user entry to db
- *  6) tell the user that it was registered 
+ *  6) tell the user that it was registered
  *
  * don't forget to try{...}catch(err){...} for potential errors
  **/

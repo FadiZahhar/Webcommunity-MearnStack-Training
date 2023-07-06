@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://jasond:TagxBoEIJFbMskMi@cluster-jason.fukpscg.mongodb.net/"
+  "mongoURI": "mongodb+srv://jasond:TagxBoEIJFbMskMi@cluster-jason.fukpscg.mongodb.net/",
+  "jwtSecret": "secret"
 }
