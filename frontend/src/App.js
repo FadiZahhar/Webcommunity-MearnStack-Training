@@ -4,7 +4,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <h1>Front end ready</h1>
+    <div className='App'>My App</div>
   );
 };
 
