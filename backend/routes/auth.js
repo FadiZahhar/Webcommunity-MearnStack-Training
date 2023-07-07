@@ -6,12 +6,6 @@ const config = require("config");
 const { check, validationResult } = require("express-validator");
 const User = require("../models/User.js");
 
-// @route   GET api/auth
-// @desc    GET the logged in user
-// @access  Private
-router.get("/", (request, response) => {
-  response.send("<h1>{{ user }}</h1>");
-});
 
 // @route   POST api/auth
 // @desc    authenticate user access, get token for security of info
