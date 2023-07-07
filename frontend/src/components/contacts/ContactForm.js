@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ContactContext from '../../context/contact/contactContext';
 
-
+const initialContact = {
+  name: '',
+  email: '',
+  phone: '',
+  type: 'personal'
+};
 
 
 const ContactForm = () => {
   
-  const initialContact = {
-    name: '',
-    email: '',
-    phone: '',
-    type: 'personal'
-  };
+  const [contact, setContact] = useState({name:'',email:'',phone:'',type: 'personal'});
 
   const contactContext = useContext(ContactContext);
 
@@ -21,22 +21,19 @@ const ContactForm = () => {
     if(current !== null) {
       setContact(current);
     } else {
-      setContact(initialContact);
+      
     }
+    
   },[contactContext,current])
 
-  const [contact, setContact] = useState({
-    name:'',
-    email:'',
-    phone:'',
-    type:'personal'
-  });
+ 
+
+  const {name, email, phone, type } = contact;
 
 
+  
 
-  const { name, email, phone, type } = contact;
-
-  const onChange = (e) =>
+  const onChange = e =>
     setContact({ ...contact, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
@@ -47,12 +44,19 @@ const ContactForm = () => {
         else {
           updateContact(contact);
         }
-        setContact(initialContact)
+        setContact({
+          name: '',
+          email: '',
+          phone: '',
+          type: 'personal'
+        })
     }
 
     const clearAll = () => {
       clearCurrent();
     }
+
+    
   return (
     <form onSubmit={onSubmit}>
       <h2 className='text-primary'>
