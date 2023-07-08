@@ -2,13 +2,35 @@
 // use that router to create functions that handles special URI resources
 const router = require('express').Router();
 
+// necessary packages & files
+const auth = require('../middleware/auth');
+const { check, validationResult } = require('express-validator');
+const User = require('../models/User');
+const Contact = require('../models/Contact');
 
 
+/*
+ * in order to retrieve all created contacts: 
+ *  1) use the auth middleware to authorize user access 
+ *  2) get the contacts created by the logged in user (using user.id)
+ *     how? each time a contact is created, the user.id of the 
+ *     logged in user is saved along with it.
+ *  
+ *  3) [optional] sort contacts.
+ *     date: -1 means descending order of created contacts, most recent 
+ *     are shown first.
+ */
 // @route   GET api/contact/
 // @desc    GET contact list 
 // @access  Private (to the user only)
-router.get("/", (request, response) => {
-  response.send(`<h1>All contacts</h1>`);
+router.get("/", auth, async (req, response) => {
+  try {
+    const contacts = await Contact.find({ user: req.user.id }).sort({date: -1});
+    response.json(contacts);
+  } catch(err) {
+    console.log(err.message);
+    response.status(500).send('Server Error');
+  }
 });
 
 
