@@ -5,19 +5,23 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Alerts from './components/layout/Alerts';
 
 import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
+import AlertState from './context/alert/AlertState';
 import './App.css';
 
 const App = () => {
   return (
     <AuthState>
     <ContactState>
+      <AlertState>
     <BrowserRouter>
       <Fragment>
        <Navbar />
        <div className="container">
+        <Alerts />
        <Routes>
           <Route exact path='/' Component={Home} />
           <Route exact path='/about' Component={About} />
@@ -27,6 +31,7 @@ const App = () => {
        </div>
       </Fragment>
     </BrowserRouter>
+    </AlertState>
     </ContactState>
     </AuthState>
   );
