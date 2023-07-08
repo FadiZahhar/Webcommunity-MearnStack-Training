@@ -2,12 +2,12 @@
   "name": "contact_keeper_api",
   "version": "1.0.0",
   "description": "Backend for Contact Keeper app",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": "14.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix ../frontend",
     "clientinstall": "npm install --prefix ../frontend",
