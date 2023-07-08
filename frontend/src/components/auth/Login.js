@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import { Navigate } from 'react-router-dom';
 
 const Login = (props) => {
   const alertContext = useContext(AlertContext);
@@ -37,8 +38,8 @@ const Login = (props) => {
       })
     }
   };
-  
 
+  if (isAuthenticated) return <Navigate to='/' />;
   return (
     <div className='form-container'>
       <h1>
