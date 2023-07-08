@@ -37,7 +37,7 @@ import {
             email:'sara@gmail.com',
             phone:'222-222-2222',
             type:'personal'
-        },
+        }
     ],
     current: null
     };
@@ -57,6 +57,7 @@ import {
 
     // Set Current Contact
     const setCurrent = contact => {
+        console.log("contact",contact);
         dispatch({type: SET_CURRENT, payload: contact});
     }
 
@@ -77,6 +78,7 @@ import {
     return (
         <ContactContext.Provider value={{
             contacts: state.contacts,
+            current: state.current,
             addContact,
             deleteContact,
             setCurrent,

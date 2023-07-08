@@ -1,17 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ContactContext from '../../context/contact/contactContext';
 
-const initialContact = {
-  name: '',
-  email: '',
-  phone: '',
-  type: 'personal'
-};
+
 
 
 const ContactForm = () => {
   
   const [contact, setContact] = useState({name:'',email:'',phone:'',type: 'personal'});
+  const {name, email, phone, type } = contact;
 
   const contactContext = useContext(ContactContext);
 
@@ -21,25 +17,22 @@ const ContactForm = () => {
     if(current !== null) {
       setContact(current);
     } else {
-      
+      setContact({name:'',email:'',phone:'',type: 'personal'});
     }
     
   },[contactContext,current])
 
  
-
-  const {name, email, phone, type } = contact;
-
-
   
 
-  const onChange = e =>
+  const onChange = (e) =>{
+  
     setContact({ ...contact, [e.target.name]: e.target.value });
-
+  }
     const onSubmit = e => {
         e.preventDefault();
         if(current === null) {
-          addContact();
+          addContact(contact);
         }
         else {
           updateContact(contact);
@@ -66,21 +59,21 @@ const ContactForm = () => {
         type='text'
         placeholder="Name"
         name="name"
-        value={name}
+        value={contact?.name}
         onChange={onChange}
       />
       <input
         type='email'
         placeholder='Email'
         name='email'
-        value={email}
+        value={contact?.email}
         onChange={onChange}
       />
       <input
         type='text'
         placeholder='Phone'
         name='phone'
-        value={phone}
+        value={contact?.phone}
         onChange={onChange}
       />
       <h5>Contact Type</h5>
@@ -88,7 +81,7 @@ const ContactForm = () => {
         type='radio'
         name='type'
         value='personal'
-        checked={type === 'personal'}
+        checked={contact?.type === 'personal'}
         onChange={onChange}
       />{' '}
       Personal{' '}
@@ -96,7 +89,7 @@ const ContactForm = () => {
         type='radio'
         name='type'
         value='professional'
-        checked={type === 'professional'}
+        checked={contact?.type === 'professional'}
         onChange={onChange}
       />{' '}
       Professional
