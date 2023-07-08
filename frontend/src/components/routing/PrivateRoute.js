@@ -1,23 +1,14 @@
 import React, { useContext } from 'react';
-import { Route,Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
+import Spinner from '../../components/layout/Spinner';
 
-
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component }) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, loading } = authContext;
-  return(
-    <Route 
-    {...rest}
-    render={props => 
-    !isAuthenticated && !loading ? (
-      <Navigate to='/login' />
-    ) : (
-      <Component {...props} />
-    )
-  }
-  />
-  )
+  if (loading) return <Spinner />;
+  if (isAuthenticated) return <Component />;
+  return <Navigate to='/login' />;
 };
 
 export default PrivateRoute;
