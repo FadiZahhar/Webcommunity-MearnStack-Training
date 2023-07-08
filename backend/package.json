@@ -11,7 +11,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix ../frontend",
     "clientinstall": "npm install --prefix ../frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "vercel-build": "echo hello"
   },
   "author": "Brad Traversy",
   "license": "MIT",
