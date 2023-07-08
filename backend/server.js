@@ -53,7 +53,7 @@ if(process.env.NODE_ENV === 'production') {
 
     app.get('*',(req,res) => res.sendFile(path.resolve(__dirname,'client','build','index.html')));
 }
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 6000; 
 
 /*
 * Finally, this line starts the server and makes it listen for connections on the specified port. 
