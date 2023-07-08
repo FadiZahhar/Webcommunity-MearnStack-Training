@@ -7,7 +7,7 @@
 const express = require('express');
 // adding the config db
 const connectDB = require('./config/db');
-
+const path = require('path');
 /*
 * Here, an instance of Express is created and assigned to the constant app. 
 * This instance has methods for routing HTTP requests, 
