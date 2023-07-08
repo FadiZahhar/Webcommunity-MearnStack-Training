@@ -34,6 +34,7 @@ router.get("/", auth, async (req, response) => {
 });
 
 
+
 /*
  * steps for create contact:
  *  1) add authentications and validation before handling request
@@ -42,8 +43,6 @@ router.get("/", auth, async (req, response) => {
  *  4) return the new contact info to client
  *  5) handle server errors
 */
-
-
 // @route   POST api/contact/
 // @desc    CREATE new contact 
 // @access  Private (to the user only)
@@ -75,35 +74,82 @@ router.post("/", auth, [
 });
 
 
-
+/*
+ * steps to update contact:
+ *  1) add authentication middleware to verify logged in user
+ *  2) take the id given as route parameter (contact id)
+ *  3) build the updated version depending on data send in request
+ *  4) handle potential errors
+ *  5) find the contact to be updated by its id findById()
+ *  6) make sure the user owns that contact
+ *  7.1) save the new infos to that contact using findByIdAndUpdate()
+ *  7.2) use {$set: updatedEnt}, {new: true} in order to 
+ *       update existing entries
+*/
 // @route   PUT api/contact/:id
 // @desc    UPDATE new contact by id
 // @access  Private (to the user only)
-router.put("/:id", (request, response) => {
+router.put('/:id', auth, async (req, response) => {
   // take :id parameter and process it
-  let id = request.params.id;
-  response.send(`<h1>contact ${id} updated!</h1>`);
+  let { id } = req.params;
 
-  // on wrong validation
-  let collided_contact = "Someone#phone";
-  let message = `
-    <h1 style="color: crimson">
-      contact infos resembles to an existing one: ${collided_contact}!
-    </h1>
-  `;
-  response.send(message);
+  const { name, email, phone, type } = req.body;
+  const updated = {};
+
+  if(name) updated.name = name; 
+  if(email) updated.email = email; 
+  if(phone) updated.phone = phone; 
+  if(type) updated.type = type; 
+
+  try{
+    let contact = await Contact.findById(id);
+    if(!contact) return response.status(404).json({msg: 'Contact not found' });
+
+    if(contact.user.toString() !== req.user.id)
+      return response.status(401).json({ msg: 'Unauthorized' });
+
+      contact = await Contact.findByIdAndUpdate(id, 
+        {$set: updated}, 
+        {new: true}
+      );
+
+      response.json(contact);
+  }catch(err){
+    console.log("🚀 ~ file: contacts.js:98 ~ router.put ~ err:", err.message)
+    response.status(500).send("server errorrrrRRrr");
+  }
 });
 
 
-
+/*
+ * steps to update contact:
+ *  1) add authentication middleware to verify logged in user
+ *  2) take the id given as route parameter (contact id)
+ *  3) handle potential errors
+ *  4) find the contact to be removed by its id findById()
+ *  5) make sure the user owns that contact
+ *  6) remove that contact using findByIdAndRemove()
+*/
 // @route   DELETE api/contact/:id
 // @desc    DELETE a contact by an id 
 // @access  Private (to the user only)
-router.delete("/:id", (request, response) => {
-  let id = request.params.id;
+router.delete("/:id", auth, async (req, response) => {
+  let { id } = req.params;
 
-  // (are you sure?)
-  response.send(`<h1 style="color: green">contact ${id} deleted!</h1>`);
+  try{
+    let contact = await Contact.findById(id);
+    if(!contact) return response.status(404).json({msg: 'Contact not found' });
+
+    if(contact.user.toString() !== req.user.id)
+      return response.status(401).json({ msg: 'Unauthorized' });
+
+      contact = await Contact.findByIdAndRemove(id);
+
+      response.json({ msg: "contact removed! yeeehaw" });
+    }catch(err){
+      console.log("🚀 ~ file: contacts.js:98 ~ router.put ~ err:", err.message)
+      response.status(500).send("server errorrrrRRrr");
+    }
 });
 
 
