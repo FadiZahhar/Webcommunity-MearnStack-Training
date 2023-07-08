@@ -34,13 +34,44 @@ router.get("/", auth, async (req, response) => {
 });
 
 
+/*
+ * steps for create contact:
+ *  1) add authentications and validation before handling request
+ *  2) take the contact info from req.body
+ *  3) create and save a contact entry in db
+ *  4) return the new contact info to client
+ *  5) handle server errors
+*/
+
 
 // @route   POST api/contact/
 // @desc    CREATE new contact 
 // @access  Private (to the user only)
-router.post("/", (request, response) => {
-  response.send(`<h1>contact registered!</h1>`);
-  // response.send(`<h1 style="color: crimson">contact already exists!</h1>`);
+router.post("/", auth, [
+  check("name", "Please enter a name").not().isEmpty()
+], async (req, response) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty())
+    response.status(400).json({ errors: errors.array() });
+
+  const { name, email, phone, type } = req.body;
+
+  try {
+    const newContact = new Contact({
+      name,
+      email,
+      phone,
+      type,
+      user: req.user.id,
+    });
+
+    const contact = await newContact.save();
+
+    response.json(contact);
+  } catch (err) {
+    console.error(err.message);
+    response.status(500).send("Server Error");
+  }
 });
 
 
