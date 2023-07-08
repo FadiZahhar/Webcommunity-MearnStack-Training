@@ -45,6 +45,14 @@ app.use('/api/contacts', require('./routes/contacts'));
 * (like when deploying to Heroku or some other cloud provider). 
 * If process.env.PORT is not set (like in a local environment), it defaults to port 6000.
 */
+
+// Serve static assets in production
+if(process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*',(req,res) => res.sendFile(path.resolve(__dirname,'client','build','index.html')));
+}
 const PORT = process.env.PORT || 6000;
 
 /*
