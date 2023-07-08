@@ -2,6 +2,7 @@ import React, { useReducer, useContext, useEffect } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthToken from '../../utils/setAuthToken';
 
 import {
   REGISTER_SUCCESS,
@@ -29,7 +30,23 @@ const AuthState = (props) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
   
   // Load User
-  const loadUser = () => console.log('loaduser');
+  const loadUser = async () => {
+    if(localStorage.token) {
+        setAuthToken(localStorage.token);
+    }
+
+    try {
+        const res = await axios.get('/api/auth');
+        dispatch({
+            type: USER_LOADED, 
+            payload: res.data
+        });
+
+        loadUser();
+    } catch(err) {
+        dispatch({type: AUTH_ERROR });
+    }
+  }
 
   // Register User
   const register = async formData => {
@@ -55,13 +72,13 @@ const AuthState = (props) => {
   }
 
   // Login User
-  const loginUser = () => console.log('loginuser');
+  const loginUser = () => {console.log('loginuser');}
 
   // Logout
   const logoutUser = () => console.log('logoutuser');
 
   // Clear Errors
-  const clearErrors = () => console.log('clearErrors');
+  const clearErrors = () => dispatch({ type: CLEAR_ERRORS})
 
   return (
     <AuthContext.Provider value={{
