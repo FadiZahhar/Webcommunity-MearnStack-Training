@@ -30,12 +30,12 @@ const App = () => {
        <div className="container">
         <Alerts />
        <Routes>
-       <Route exact path='/' Component={<PrivateRoute/>}>
-            <Route exact path='/'  Component={Home}/>
+       <Route exact path='/' element={<PrivateRoute/>}>
+            <Route exact path='/'  element={Home}/>
           </Route>
          
-          <Route exact path='/about' Component={About} />
-          <Route exact path='/register' Component={Register} />
+          <Route  path='/about' Component={About} />
+          <Route  path='/register' Component={Register} />
           <Route exact path='/login' Component={Login} />
         </Routes>
        </div>

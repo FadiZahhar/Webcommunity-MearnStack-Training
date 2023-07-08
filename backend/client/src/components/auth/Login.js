@@ -8,7 +8,7 @@ const Login = (props) => {
   const authContext = useContext(AuthContext);
 
   const {setAlert} = alertContext;
-  const {login, error, clearErrors, isAuthenticated } = authContext;
+  const {loginUser, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
     if(error === 'Invalid Credentials') {
@@ -32,7 +32,7 @@ const Login = (props) => {
     if(email === '' || password === '') {
       setAlert('Please fill in all fields', 'danger');
     } else {
-      login({
+      loginUser({
         email,
         password
       })

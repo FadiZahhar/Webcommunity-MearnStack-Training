@@ -28,7 +28,7 @@ import {
     // Get Contacts
     const getContacts = async () => {
         try {
-            const res = await axios.get('/api/contacts');
+            const res = await axios.get(process.env.REACT_APP_API_URL+'/api/contacts');
 
             dispatch({
                 type: GET_CONTACTS,
@@ -50,7 +50,7 @@ import {
             }
         }
         try {
-            const res = await axios.post('/api/contacts', contact, config);
+            const res = await axios.post(process.env.REACT_APP_API_URL+'/api/contacts', contact, config);
             dispatch({
                 type: ADD_CONTACT, 
                 payload: res.data});
