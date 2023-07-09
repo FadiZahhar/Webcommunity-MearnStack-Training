@@ -5,6 +5,7 @@
 * in Node.js.
 */
 const express = require('express');
+const cors = require('cors');
 // adding the config db
 const connectDB = require('./config/db');
 const path = require('path');
@@ -14,6 +15,7 @@ const path = require('path');
 * configuring middleware, rendering HTML views, and registering a template engine.
 */
 const app = express();
+app.use(cors());
 
 // Connect Database
 connectDB();
