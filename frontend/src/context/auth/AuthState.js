@@ -31,6 +31,7 @@ const AuthState = (props) => {
   
   // Load User
   const loadUser = async () => {
+    console.log("token in localstorage",localStorage.token);
     if(localStorage.token) {
         setAuthToken(localStorage.token);
     }
@@ -42,7 +43,7 @@ const AuthState = (props) => {
             payload: res.data
         });
 
-        loadUser();
+        
     } catch(err) {
         dispatch({type: AUTH_ERROR });
     }
@@ -62,6 +63,7 @@ const AuthState = (props) => {
             type: REGISTER_SUCCESS,
             payload: res.data
         });
+        loadUser();
     }
     catch(err) {
         dispatch({

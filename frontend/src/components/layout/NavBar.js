@@ -8,11 +8,11 @@ const Navbar = ({title, icon}) => {
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
 
-    const { isAuthenticated, logout, user } = authContext;
+    const { isAuthenticated, logoutUser, user } = authContext;
     const { clearContacts } = contactContext;
 
     const onLogout = () => {
-        logout();
+        logoutUser();
         clearContacts();
     }
 
@@ -20,7 +20,7 @@ const Navbar = ({title, icon}) => {
         <Fragment>
             <li>Hello { user && user.name }</li>
             <li>
-                <a onClick={onLogout} href="#!">
+                <a onClick={onLogout} href="">
                     <i className='fas fa-sign-out-alt'></i> <span className='hide-sm'>Logout</span>
                 </a>
             </li>

@@ -48,7 +48,7 @@ const contactReducer = (state, action) => {
         case SET_CURRENT:
             return {
                 ...state,
-                current: action.payloads
+                current: action.payload
             }
         case CLEAR_CURRENT:
              return {

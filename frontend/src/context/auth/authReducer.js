@@ -1,3 +1,4 @@
+import setAuthToken from '../../utils/setAuthToken';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -20,7 +21,9 @@ const authReducer = (state, action) => {
       }
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
+      console.log("logedin token is",action.payload.token);
       localStorage.setItem('token',action.payload.token)
+      setAuthToken(action.payload.token);
       return {
         ...state,
         ...action.payload,
@@ -29,6 +32,7 @@ const authReducer = (state, action) => {
       };
     case REGISTER_FAIL:
     case AUTH_ERROR:
+    case LOGIN_FAIL:
       case LOGOUT:
       localStorage.removeItem('token');
       return {

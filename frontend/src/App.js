@@ -16,6 +16,7 @@ import setAuthToken from './utils/setAuthToken';
 import './App.css';
 
 if(localStorage.token) {
+  console.log("token in localstorage",localStorage);
   setAuthToken(localStorage);
 }
 
@@ -30,10 +31,8 @@ const App = () => {
        <div className="container">
         <Alerts />
        <Routes>
-       <Route exact path='/' element={<PrivateRoute/>}>
-            <Route exact path='/'  element={Home}/>
-          </Route>
-         
+       <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+
           <Route  path='/about' Component={About} />
           <Route  path='/register' Component={Register} />
           <Route  path='/login' Component={Login} />
