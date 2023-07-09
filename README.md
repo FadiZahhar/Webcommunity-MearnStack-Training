@@ -47,3 +47,7 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 [Step by Step Video Here](https://vimeo.com/841683652)
 
 [Documentation On The Wiki Here](https://github.com/FadiZahhar/Webcommunity-MearnStack-Training/wiki)
+
+[Demo working app explained](https://vimeo.com/843565464?share=copy)  
+
+[Working Demo App hosted on vercel](https://webcommunity-mearn-stack-training.vercel.app/)
