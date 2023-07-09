@@ -20,7 +20,7 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 4. Fetch or Axios (wokthrow) creatiing CRUD oporations from client side to our developed ready Backend.
 
 ### Front end Part 2 objectives
-1. experimenting using alternative CSS solutions such (Sass/SCSS, insline JSX ,CSS Modules,Styled Components etc)
+1. experimenting using alternative CSS solutions such (Sass compiler, insline JSX , compiling CSS in JSX etc)
 2. adding tailwind and refactoring the UX/UI component using Tailwind 3
 3. refactoring the Context API to Redux (introduction to redux best practices design pattern)
 
@@ -38,8 +38,16 @@ Full stack MERN contact manager with React hooks, context & JWT authentication.
 4. deploy the code to versal.
 
 ## How to start
-1. send and email to info@wmvp.dev to request a colaboration permession or join the [Whatsapp Group](https://chat.whatsapp.com/L13QVy5mD6z1MAFbdJIqM4).
+1. send and email to info@wmvp.dev to request a colaboration permession.
 2. once you are added as a colaborator, you need to create a new branch from main with your own name.
 3. practice evrething shared from the Lebanese Web Community, on the Wiki Documentation and project objectives.
-4. attend the online meetings to follow the progress of the community training, and you may check old meetings [here](https://vimeo.com/showcase/10494161) shared on Vimeo documented for the purpose of this free training. 
+4. attend the online meetings to follow the progress of the community training, and you may check old meetings shared on Vimeo documented for the purpose of this free training.
 
+## Example on how to use this training step by step
+[Step by Step Video Here](https://vimeo.com/841683652)
+
+[Documentation On The Wiki Here](https://github.com/FadiZahhar/Webcommunity-MearnStack-Training/wiki)
+
+[Demo working app explained](https://vimeo.com/843565464?share=copy)  
+
+[Working Demo App hosted on vercel](https://webcommunity-mearn-stack-training.vercel.app/)
