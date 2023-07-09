@@ -5,15 +5,17 @@
 * in Node.js.
 */
 const express = require('express');
+const cors = require('cors');
 // adding the config db
 const connectDB = require('./config/db');
-//const path = require('path');
+const path = require('path');
 /*
 * Here, an instance of Express is created and assigned to the constant app. 
 * This instance has methods for routing HTTP requests, 
 * configuring middleware, rendering HTML views, and registering a template engine.
 */
 const app = express();
+app.use(cors());
 
 // Connect Database
 connectDB();
@@ -47,12 +49,12 @@ app.use('/api/contacts', require('./routes/contacts'));
 */
 
 // Serve static assets in production
-/*if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('client/build'));
 
     app.get('*',(req,res) => res.sendFile(path.resolve(__dirname,'client','build','index.html')));
-}*/
+}
 const PORT = process.env.PORT || 6000; 
 
 /*
