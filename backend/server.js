@@ -11,6 +11,7 @@ import authRoutes from './routes/auth.js';
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(express.json({ extended: false }));
 
 /*routes*/
 app.use('/api/users', usersRoutes);
