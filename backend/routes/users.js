@@ -7,7 +7,6 @@ const { check, validationResult } = require('express-validator');
 const router = express.Router();
 const User = require('../models/User');
 
-// define endpoints for an api
 //@route    POST api/users
 //@desc register a user
 //@access   public
@@ -53,7 +52,7 @@ router.post('/', [
         );
 
     } catch(err) {
-        console.error(err.maessage);
+        console.error(err.message);
         res.status(500).send('server error');
     }
 });
