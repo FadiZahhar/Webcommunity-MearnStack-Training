@@ -33,8 +33,8 @@ app.get('/',(req,res) => res.json({msg:'Welcome to Lebanese Web Community'}));
 
 // Define Routes
 app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts', require('./routes/contacts'));
+app.use('/api/auth', require('./routes/auth'));
 /*
 * This line sets the port on which the Express app will listen. 
 * process.env.PORT is the port environment variable (if set), 

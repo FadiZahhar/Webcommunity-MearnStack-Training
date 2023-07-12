@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://mohamadalzaatari748:1kSxhwRb1tdkx6eJ@cluster0.qy3txeh.mongodb.net/",
+    "jwtSecret": "secret"
+}
