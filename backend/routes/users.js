@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
+// added the express validator check
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator/check');
+// adding the user model
 
 const User = require('../models/User');
 
+//@route POST api/users
+//@desc Register a user
+//@access Public
 router.post('/',[
     check('name','name is required').not().isEmpty(),
     check('email','Please include a valid email').isEmail(),
@@ -17,8 +22,7 @@ router.post('/',[
         return res.status(400).json({errors: errors.array()});
     }
     
-    // destrcuture 
-    const {name, email, password } = req.body;
+    const {name, email, password } = req.body; // destructuring assignment from the request body
     try {
         let user = await User.findOne({email});
 
@@ -37,7 +41,8 @@ router.post('/',[
 
         user.password = await bcrypt.hash(password, salt);
 
-        await user.save();
+        await user.save(); //save user to the database
+        //res.send('User saved'); // temperory message to test it out
         // creating the payload
         const payload = {
             user: {
@@ -48,7 +53,7 @@ router.post('/',[
         jwt.sign(payload, config.get('jwtSecret'),{
             expiresIn: 360000
         },
-        (err,token) => {
+        (err, token) => { // the catch error method
             if(err) throw err;
             res.json({token});
         }
