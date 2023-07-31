@@ -4,7 +4,7 @@ const app = express();
 
 
 // connect to mongo database
-const connect_mongo_db = require("../config/mongo-db");
+const connect_mongo_db = require("./config/mongo-db");
 connect_mongo_db();
 
 

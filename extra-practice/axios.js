@@ -121,7 +121,7 @@ const getFetch2 = async (user_id = "") => {
     console.log("🚀 ~ file: axios.js:36 ~ getFetch ~ error occured!")
   }
 }
-// getFetch2(3);
+getFetch2(3);
 
 /*
  * in axios, it's possible to modify the default configs for axios instances, such as: 
@@ -132,10 +132,10 @@ const getFetch2 = async (user_id = "") => {
  * 
  * also, it's possible to create a custom axios instance with custom configs and use it normally
 */
-const myAxios = axfetch.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
-  timeout: 10000
-});
+// const myAxios = axfetch.create({
+//   baseURL: "https://jsonplaceholder.typicode.com",
+//   timeout: 10000
+// });
 // myAxios.get("/users/12")
 //   .then( ({ data }) => console.log(data) )
 //   .catch( err => console.error("invalid url") );

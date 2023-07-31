@@ -1,5 +1,5 @@
 // start by importing bcrypt library
-const bcrypt = require("bcryptjs");
+const bcrypt = require("../server/node_modules/bcryptjs");
 
 const encryptPass = async (password) => {
   const salt = await bcrypt.genSalt(10);
