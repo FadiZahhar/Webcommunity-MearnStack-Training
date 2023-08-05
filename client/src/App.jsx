@@ -7,6 +7,8 @@ import './App.css';
 import NavBar from "./components/layout/NavBar";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
 
             <main className='container'>
               <Routes>
-                <Route exact path='/' Component={Home} />
-                <Route path='/about' Component={About} />
+                <Route exact path='/' element={<Home />} />
+                <Route path='/about' element={<About />} />
+                <Route exact path='/register' element={<Register />} />
+                <Route exact path='/login' element={<Login />} />
               </Routes>
             </main>
           </>
