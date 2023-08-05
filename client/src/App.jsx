@@ -9,10 +9,11 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import AlertState from './context/alert/alertState';
 
 function App() {
   return (
-    <AuthState>
+    <AuthState><AlertState>
       <ContactState>
         <BrowserRouter>
           <>
@@ -29,7 +30,7 @@ function App() {
           </>
         </BrowserRouter>
       </ContactState>
-    </AuthState>
+    </AlertState></AuthState>
   );
 }
 
