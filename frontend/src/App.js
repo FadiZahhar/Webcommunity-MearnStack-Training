@@ -4,20 +4,21 @@ import Navbar from './components/layout/NavBar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 
+import ContactState from './context/contact/ContactState';
 import './App.css';
 
 const App = () => {
   return (
     <BrowserRouter>
-    <Fragment>
-      <Navbar />
-      <div className="container">
-        <Routes>
-          <Route exact path="/" Component={Home} />
-          <Route path="/about" Component={About} />
+      <Fragment>
+       <Navbar />
+       <div className="container">
+       <Routes>
+          <Route exact path='/' Component={Home} />
+          <Route path='/about' Component={About} />
         </Routes>
-      </div>
-    </Fragment>
+       </div>
+      </Fragment>
     </BrowserRouter>
   );
 };
