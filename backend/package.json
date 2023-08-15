@@ -6,9 +6,12 @@
   "scripts": {
     "server": "nodemon index.ts",
     "dev": "NODE_ENV=dev nodemon -r tsconfig-paths/register src/index.ts",
+    "client": "npm start --prefix ../frontend",
+    "clientinstall": "npm install --prefix ../frontend",
     "start": "npm run build && node build/src/index.js",
     "build": "rimraf ./build && tsc",
-    "test": "NODE_ENV=test mocha --timeout 100000 --check-leaks -r tsconfig-paths/register -r ts-node/register 'test/**/*.spec.ts'"
+    "test": "NODE_ENV=test mocha --timeout 100000 --check-leaks -r tsconfig-paths/register -r ts-node/register 'test/**/*.spec.ts'",
+    "conc": "concurrently \"npm run dev\" \"npm run client\""
   },
   "author": "Brad Traversy",
   "license": "MIT",

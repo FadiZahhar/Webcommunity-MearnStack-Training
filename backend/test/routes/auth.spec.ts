@@ -65,9 +65,6 @@ describe("auth check sign up", () => {
       })
       .expect(STATUS_CODE_BAD_REQUEST);
 
-    console.log("userAdded");
-    console.log(userAdded);
-
     existingUser && (await User.findByIdAndDelete(existingUser?.body.data.id));
   });
 });
