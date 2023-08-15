@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "axios": "^0.24.0",
+    "bootstrap": "^5.3.1",
     "contact_keeper_api": "file:../backend",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.14.1",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
+    "reactstrap": "^9.2.0",
     "uuid": "^8.3.2"
   },
   "scripts": {
