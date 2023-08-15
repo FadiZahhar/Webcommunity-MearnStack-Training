@@ -5,20 +5,21 @@ import About from "./components/pages/About";
 
 import "./App.css";
 import CNavbar from "./components/layout/CNavBar";
+import ContactState from "./context/contact/contactState";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Fragment>
-        <CNavbar />
-        <div className="container">
+    <ContactState>
+      <BrowserRouter>
+        <Fragment>
+          <CNavbar />
           <Routes>
             <Route exact path="/" Component={Home} />
             <Route path="/about" Component={About} />
           </Routes>
-        </div>
-      </Fragment>
-    </BrowserRouter>
+        </Fragment>
+      </BrowserRouter>
+    </ContactState>
   );
 };
 

@@ -15,7 +15,7 @@ const CNavbar = ({ title, icon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Navbar color="dark" dark expand="md">
+    <Navbar style={{ backgroundColor: "#202b3d" }} dark expand="md">
       <NavbarBrand href="/">
         <i className={icon}></i> {title}
       </NavbarBrand>
