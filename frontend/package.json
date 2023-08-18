@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "bootstrap": "^5.3.1",
+    "bson-objectid": "^2.0.4",
     "contact_keeper_api": "file:../backend",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

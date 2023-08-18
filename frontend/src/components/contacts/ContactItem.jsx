@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Card, CardBody, CardTitle, Badge, Button } from "reactstrap";
+import ContactContext from "../../context/contact/contactContext";
 
 const ContactItem = ({ contact }) => {
-  const { name, email, phone, type } = contact;
+  const { id, name, email, phone, type } = contact;
+  const contactContext = useContext(ContactContext);
+
+  const onDelete = () => {
+    contactContext.deleteContact(id);
+    contactContext.clearCurrent();
+  };
 
   return (
     <Card className="mb-3 bg-dark text-light">
@@ -30,10 +37,17 @@ const ContactItem = ({ contact }) => {
           )}
         </ul>
         <div className="d-flex justify-content-end">
-          <Button color="info" size="sm" className="mr-2">
+          <Button
+            color="info"
+            size="sm"
+            className="mr-2"
+            onClick={() => {
+              contactContext.setCurrent(contact);
+            }}
+          >
             Edit
           </Button>
-          <Button color="danger" size="sm">
+          <Button color="danger" size="sm" onClick={onDelete}>
             Delete
           </Button>
         </div>

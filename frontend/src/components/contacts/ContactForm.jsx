@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import ContactContext from "../../context/contact/contactContext";
 
@@ -11,23 +11,34 @@ const initialContact = {
 };
 
 const ContactForm = () => {
-  const contactContext = useContext(ContactContext);
+  const { addContact, updateContact, clearCurrent, current } =
+    useContext(ContactContext);
   const [contact, setContact] = useState(initialContact);
-
-  const { name, email, phone, type } = contact;
 
   const onChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
 
+  useEffect(() => {
+    if (current) {
+      setContact(current);
+    } else {
+      setContact(initialContact);
+    }
+  }, [current]);
+
   const onSubmit = (e) => {
     e.preventDefault();
-    contactContext.addContact(contact);
+    if (!current) addContact(contact);
+    if (current) updateContact(contact);
+
     setContact(initialContact);
   };
 
   return (
     <Form onSubmit={onSubmit} className="bg-dark text-light p-4">
-      <h2 className="text-primary mb-3">Add Contact</h2>
+      <h2 className="text-primary mb-3">
+        {current ? "Edit Contact" : "Add Contact"}
+      </h2>
       <FormGroup>
         <Label for="name" className="text-light">
           Name
@@ -35,7 +46,7 @@ const ContactForm = () => {
         <Input
           type="text"
           name="name"
-          value={name}
+          value={contact?.name}
           onChange={onChange}
           placeholder="Enter name"
           required
@@ -49,7 +60,7 @@ const ContactForm = () => {
         <Input
           type="email"
           name="email"
-          value={email}
+          value={contact?.email}
           onChange={onChange}
           placeholder="Enter email"
           required
@@ -63,7 +74,7 @@ const ContactForm = () => {
         <Input
           type="text"
           name="phone"
-          value={phone}
+          value={contact?.phone}
           onChange={onChange}
           placeholder="Enter phone"
           className="bg-dark text-light"
@@ -76,7 +87,7 @@ const ContactForm = () => {
             type="radio"
             name="type"
             value="personal"
-            checked={type === "personal"}
+            checked={contact?.type === "personal"}
             onChange={onChange}
             className="bg-dark"
           />{" "}
@@ -89,16 +100,27 @@ const ContactForm = () => {
             type="radio"
             name="type"
             value="professional"
-            checked={type === "professional"}
+            checked={contact?.type === "professional"}
             onChange={onChange}
             className="bg-dark"
           />{" "}
           Professional
         </Label>
       </FormGroup>
-      <Button color="primary" block className="mt-3">
-        <i className="fa fa-user" /> Add Contact
+      <Button type="submit" color="primary" block className="mt-3">
+        <i className="fa fa-user" />{" "}
+        {current ? "Update Contact" : "Add Contact"}
       </Button>
+      {current && (
+        <Button
+          onClick={() => clearCurrent()}
+          color="secondary"
+          block
+          className="mt-3"
+        >
+          Clear
+        </Button>
+      )}
     </Form>
   );
 };

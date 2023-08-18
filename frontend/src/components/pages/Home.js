@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Contacts from "../contacts/Contacts";
 import ContactForm from "../contacts/ContactForm";
+import ContactFilter from "../contacts/ContactFilter";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
             <ContactForm />
           </Col>
           <Col lg="6">
+            <ContactFilter />
             <Contacts />
           </Col>
         </Row>
