@@ -1,0 +1,5 @@
+/* All Animations will be added to this file */
+@import './styles/animation.css';
+
+/* Any Custom Changes can be added to this file */
+@import './styles/custom.css'

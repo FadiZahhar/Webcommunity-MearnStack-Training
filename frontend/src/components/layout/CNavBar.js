@@ -31,6 +31,16 @@ const CNavbar = ({ title, icon }) => {
               About
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink className="text-light" href="/login">
+              Login
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="text-light" href="/register">
+              Register
+            </NavLink>
+          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
