@@ -97,7 +97,6 @@ import {
     }
 
     // Update Contact
-     // Update Contact
      const updateContact = async contact => {
         const config = {
             headers: {
